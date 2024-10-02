@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="card" *ngIf="user; else loginPrompt">
+      <div class="card-header">
+        <h1>Welcome, {{ user.username }}!</h1>
+      </div>
+      <div class="card-body">
+        <p>You are successfully logged in.</p>
+      </div>
+    </div>
+    <ng-template #loginPrompt>
+      <div class="card">
+        <div class="card-header">
+          <h1>Login</h1>
+        </div>
+        <div class="card-body">
+          <p>Please login using OAuth2.</p>
+          <div class="login-buttons">
+            <a class="btn btn-google" href="http://localhost:8080/oauth2/authorization/google">Login with Google</a>
+            <a class="btn btn-facebook" href="http://localhost:8080/oauth2/authorization/facebook">Login with Facebook</a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  

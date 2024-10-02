@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h1>Welcome, {{ user?.username }}!</h1>
+      </div>
+      <div class="card-body">
+        <p>You are successfully logged in.</p>
+        <button (click)="logout()" class="btn btn-primary">Logout</button>
+  
+        <h3>Users List:</h3>
+        <ul>
+          <li *ngFor="let usr of users" (click)="startChat(usr)">
+            {{ usr.username }}
+          </li>
+        </ul>
+  
+        <h3>Existing Chats:</h3>
+        <ul>
+          <li *ngFor="let chat of chats">
+            <a (click)="navigateToChat(chat.id)">
+                Chat with {{ chat.user1.username === user?.username ? chat.user2.username : chat.user1.username }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
